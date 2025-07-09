@@ -9,9 +9,16 @@ class ExpressError extends Error {
     super();
     this.message = message;
     this.status = status;
-    console.error(this.stack);
   }
 }
 
+class BadRequestError extends ExpressError {
+  constructor(message = "Bad Request") {
+    super(message, 400);
+  }
+}
 
-module.exports = ExpressError;
+module.exports = {
+  ExpressError,
+  BadRequestError
+};

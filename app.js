@@ -11,6 +11,11 @@ const bookRoutes = require("./routes/books");
 
 app.use("/books", bookRoutes);
 
+// GET - HOME PAGE
+app.get("/", (req, res) => {
+  res.json({msg: "Welcome to the bookstore!"});
+});
+
 /** 404 handler */
 
 app.use(function (req, res, next) {
@@ -29,6 +34,8 @@ app.use(function(err, req, res, next) {
     message: err.message
   });
 });
+
+
 
 
 module.exports = app;
